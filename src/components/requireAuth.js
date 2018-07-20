@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 
 export default (ChildComponent) => {
     class ComposedComponent extends Component {
@@ -21,7 +21,10 @@ export default (ChildComponent) => {
         }
 
         render(){
-            return <ChildComponent />
+            return <ChildComponent {...this.props} /> 
+            /* {...this.props} take any props that were passed to our higher order component
+                and just passes them straight down to the child's component of comment box
+            */
         }
     }
 
